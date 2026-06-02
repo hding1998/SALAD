@@ -139,7 +139,7 @@ All datasets are synthetically constructed from publicly available industry stan
 
 ### Original Open Data
 
-- **UCI Household Power Consumption** (Hebrail & Berard, 2012): `data/sources/uci/household_power_consumption.txt` — 2,075,259 rows, 9 fields, CC BY 4.0.
+- **UCI Household Power Consumption** (Hebrail & Berard, 2012): `data/sources/uci/household_power_consumption.txt.gz` — 2,075,259 rows, 9 fields, CC BY 4.0. **Run `gunzip household_power_consumption.txt.gz` after cloning.**
 - **ETT (Electricity Transformer Temperature)** (Zhou et al., 2021): `data/sources/ETT/ETTh1.csv`, `ETTh2.csv`, `ETTm1.csv`, `ETTm2.csv` — 17,420–69,680 rows.
 
 ---
