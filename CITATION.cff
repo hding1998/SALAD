@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or dataset, please cite both the article and the software."
+type: software
+title: "SALAD: Tail-Anchored Prompt Architecture for Trustworthy Edge NLP in Power System Cyber-Physical Systems"
+authors:
+  - family-names: "Zhuang"
+    given-names: "Zheyin"
+  - family-names: "Xue"
+    given-names: "Lujun"
+  - family-names: "Wang"
+    given-names: "Zhenyu"
+  - family-names: "Ding"
+    given-names: "Han"
+  - family-names: "Jiang"
+    given-names: "Tong"
+  - family-names: "Bai"
+    given-names: "Rui"
+  - family-names: "Feng"
+    given-names: "Renjun"
+repository-code: 'https://github.com/STATEGRID-SZ/SALAD-EdgeNLP'
+abstract: "SALAD (Structured Anchor Lite Augmentation Design) is a four-level prompt framework for lightweight language models (≤2B parameters) deployed at the edge of power system cyber-physical systems. It replaces depth-first prompt augmentation (CoT/RAG) with a breadth-first constraint strategy centered on tail semantic anchoring, achieving deterministic, air-gap-ready NLP intelligence with zero per-query cost."
+keywords:
+  - Edge intelligence
+  - Trustworthy AI
+  - Semantic anchoring
+  - Power system NLP
+  - Air-gap deployment
+  - Prompt architecture
+license: MIT

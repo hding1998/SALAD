@@ -1,0 +1,27 @@
+# 论文完整实验配置（8 模型 × 4 级别 = 32 组/实验）
+# 本地 5 模型 + 云端 3 模型
+# 验证阶段可先用子集，论文投稿前跑全量
+
+models:
+  - qwen2.5:1.5b
+  - deepseek-r1:1.5b
+  - qwen2.5-coder:1.5b
+  - smollm:1.7b
+  - gemma2:2b
+  - deepseek-v4-pro
+  - kimi-k2.6
+  - minimax-m2.7
+
+levels: [0, 1, 2, 3]
+
+datasets:
+  exp_a: data/power_qa/defect_classification_150.jsonl
+  exp_b: data/power_ts/dq_scenarios_50.jsonl
+  exp_c: data/power_dispatch/dispatch_cmds_80.jsonl
+
+output_dirs:
+  exp_a: output/exp_a_results
+  exp_b: output/exp_b_results
+  exp_c: output/exp_c_results
+
+temperature: 0.3

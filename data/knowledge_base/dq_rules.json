@@ -1,0 +1,56 @@
+{
+  "name": "电力数据质量规则模板库",
+  "version": "1.0",
+  "entries": [
+    {
+      "text": "阈值规则模板（Threshold Rule）：\n适用场景：已知正常取值范围的连续型变量，如电压、电流、温度、功率等。\n配置要素：{\n  'rule_type': 'threshold',\n  'field': '字段名',\n  'lower_bound': 下限值,\n  'upper_bound': 上限值,\n  'unit': '单位',\n  'severity': '一般/严重/危急',\n  'condition': '低于下限为低越限，高于上限为高越限'\n}\n示例：变压器油温阈值规则 —— 正常范围 20~85℃，85~95℃为一般异常，95~105℃为严重异常，>105℃为危急异常。",
+      "source": "电力数据质量规则模板库",
+      "metadata": {"rule_type": "threshold", "fields": ["电压", "电流", "温度", "功率"]}
+    },
+    {
+      "text": "变化率规则模板（Rate of Change Rule）：\n适用场景：监测物理量的突变情况，如负荷突增突降、电压骤降、温度快速上升等。\n配置要素：{\n  'rule_type': 'rate_of_change',\n  'field': '字段名',\n  'window': '滑动窗口大小（如15分钟）',\n  'max_increase_rate': '最大上升率（%/时间单位）',\n  'max_decrease_rate': '最大下降率（%/时间单位）',\n  'severity': '一般/严重/危急'\n}\n示例：线路有功功率变化率规则 —— 15分钟内变化率超过±30%为异常，超过±50%为严重异常。",
+      "source": "电力数据质量规则模板库",
+      "metadata": {"rule_type": "rate_of_change", "fields": ["有功功率", "无功功率", "电压", "频率"]}
+    },
+    {
+      "text": "一致性规则模板（Consistency Rule）：\n适用场景：多字段之间的逻辑一致性检查，如P=√3×U×I×cosφ、三相不平衡度=|最大相-最小相|/平均值等。\n配置要素：{\n  'rule_type': 'consistency',\n  'fields': ['字段1', '字段2', ...],\n  'formula': '一致性公式或关系描述',\n  'tolerance': '允许误差范围（如5%）',\n  'severity': '一般/严重/危急'\n}\n示例：三相电压平衡规则 —— 三相电压不平衡度超过4%为一般异常，超过10%为严重异常。",
+      "source": "电力数据质量规则模板库",
+      "metadata": {"rule_type": "consistency", "fields": ["三相电压", "三相电流", "有功功率", "无功功率", "功率因数"]}
+    },
+    {
+      "text": "缺失值规则模板（Missing Value Rule）：\n适用场景：监测数据采集中断或传输丢包导致的缺失。\n配置要素：{\n  'rule_type': 'missing_value',\n  'field': '字段名',\n  'max_consecutive_missing': '最大允许连续缺失点数',\n  'max_missing_ratio': '最大允许缺失比例（如5%）',\n  'severity': '一般/严重/危急'\n}\n示例：遥测数据缺失规则 —— 单点数据连续缺失超过3个采样周期为一般异常，超过10个周期为严重异常。",
+      "source": "电力数据质量规则模板库",
+      "metadata": {"rule_type": "missing_value", "fields": ["遥测", "遥信", "遥脉"]}
+    },
+    {
+      "text": "重复值规则模板（Stuck Value / Flatline Rule）：\n适用场景：传感器卡死或通信冻结导致数值长时间不变。\n配置要素：{\n  'rule_type': 'flatline',\n  'field': '字段名',\n  'min_change_threshold': '最小变化阈值',\n  'max_flatline_duration': '最大冻结时长（如30分钟）',\n  'severity': '一般/严重/危急'\n}\n示例：温度传感器冻结规则 —— 变压器油温在30分钟内变化小于0.1℃且不为零值，判定为传感器冻结。",
+      "source": "电力数据质量规则模板库",
+      "metadata": {"rule_type": "flatline", "fields": ["温度", "功率", "电压", "电流"]}
+    },
+    {
+      "text": "时间序列异常规则模板（Statistical Outlier Rule）：\n适用场景：基于历史统计特征识别离群点，无需预设阈值。\n配置要素：{\n  'rule_type': 'statistical_outlier',\n  'field': '字段名',\n  'method': 'z_score / iqr / mad',\n  'window': '统计窗口（如7天滑动）',\n  'threshold': '异常判定阈值（如z_score>3）',\n  'severity': '一般/严重/危急'\n}\n示例：负荷异常波动规则 —— 使用7天滑动窗口计算Z-Score，|Z|>3为异常，|Z|>5为严重异常。",
+      "source": "电力数据质量规则模板库",
+      "metadata": {"rule_type": "statistical_outlier", "fields": ["负荷", "功率", "电流"]}
+    },
+    {
+      "text": "时序模式规则模板（Pattern Rule）：\n适用场景：识别不符合正常运行模式的数据，如夜间负荷异常偏高、检修期间数据未归零等。\n配置要素：{\n  'rule_type': 'pattern',\n  'field': '字段名',\n  'expected_pattern': '期望模式描述（如昼夜周期、工作日/周末差异）',\n  'deviation_tolerance': '偏差容忍度',\n  'severity': '一般/严重/危急'\n}\n示例：夜间负荷偏高规则 —— 凌晨2:00-5:00时段负荷超过日平均负荷30%为异常。",
+      "source": "电力数据质量规则模板库",
+      "metadata": {"rule_type": "pattern", "fields": ["负荷", "功率"]}
+    },
+    {
+      "text": "跨系统一致性规则模板（Cross-system Consistency）：\n适用场景：SCADA、EMS、OMS等多系统数据比对。\n配置要素：{\n  'rule_type': 'cross_system',\n  'field': '字段名',\n  'systems': ['系统A', '系统B'],\n  'comparison_logic': '比对逻辑（如差值/比值）',\n  'tolerance': '允许偏差（如2%）',\n  'severity': '一般/严重/危急'\n}\n示例：SCADA与EMS功率比对规则 —— 同一设备两个系统有功功率差值超过5%为异常，超过10%为严重异常。",
+      "source": "电力数据质量规则模板库",
+      "metadata": {"rule_type": "cross_system", "fields": ["有功功率", "无功功率", "电压", "电流", "开关状态"]}
+    },
+    {
+      "text": "质量等级评估规则：\n电力数据质量可分为五级：\nA级（优秀）：完整率≥99%，准确率≥99%，时效性≤1秒，一致性100%。\nB级（良好）：完整率≥95%，准确率≥95%，时效性≤5秒。\nC级（合格）：完整率≥90%，准确率≥90%，时效性≤15秒。\nD级（较差）：完整率≥80%，准确率≥80%，时效性≤60秒。\nE级（不合格）：完整率<80%或准确率<80%。\n评估维度：完整性、准确性、一致性、时效性、合理性。",
+      "source": "电力数据质量评价规范",
+      "metadata": {"rule_type": "quality_grade", "fields": ["综合评估"]}
+    },
+    {
+      "text": "遥信抖动规则模板（Chatter Rule）：\n适用场景：开关位置信号频繁变位（抖动），可能由接触不良或电磁干扰引起。\n配置要素：{\n  'rule_type': 'chatter',\n  'field': '遥信字段名',\n  'max_changes_per_hour': '每小时最大允许变位次数（如10次）',\n  'debounce_time': '去抖时间（如5秒）',\n  'severity': '一般/严重/危急'\n}\n示例：断路器遥信抖动规则 —— 1小时内变位超过10次为一般异常，超过30次为严重异常。",
+      "source": "电力数据质量规则模板库",
+      "metadata": {"rule_type": "chatter", "fields": ["遥信", "开关位置", "刀闸位置"]}
+    }
+  ]
+}
