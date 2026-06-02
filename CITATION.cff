@@ -17,7 +17,7 @@ authors:
     given-names: "Rui"
   - family-names: "Feng"
     given-names: "Renjun"
-repository-code: 'https://github.com/STATEGRID-SZ/SALAD-EdgeNLP'
+repository-code: 'https://github.com/hding1998/SALAD'
 abstract: "SALAD (Structured Anchor Lite Augmentation Design) is a four-level prompt framework for lightweight language models (≤2B parameters) deployed at the edge of power system cyber-physical systems. It replaces depth-first prompt augmentation (CoT/RAG) with a breadth-first constraint strategy centered on tail semantic anchoring, achieving deterministic, air-gap-ready NLP intelligence with zero per-query cost."
 keywords:
   - Edge intelligence

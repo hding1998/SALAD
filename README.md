@@ -8,10 +8,7 @@
 
 ## Overview
 
-This repository contains the complete implementation, datasets, and experimental pipelines for the paper:
-
-**"SALAD: Tail-Anchored Prompt Architecture for Trustworthy Edge NLP in Power System Cyber-Physical Systems"**  
-*Submitted to Energy and AI*
+This repository contains the complete implementation, datasets, and experimental pipelines for the SALAD framework.
 
 SALAD (Structured Anchor Lite Augmentation Design) is a four-level prompt framework specifically architected for ≤2B parameter language models deployed in air-gapped substation environments. It enables deterministic structured-output NLP for three critical power-system tasks—equipment defect classification, data-quality rule configuration, and dispatch instruction parsing—without GPUs, network connectivity, or per-query cloud costs.
 
@@ -74,8 +71,8 @@ SALAD (Structured Anchor Lite Augmentation Design) is a four-level prompt framew
 
 ```bash
 # Clone the repository
-git clone https://github.com/STATEGRID-SZ/SALAD-EdgeNLP.git
-cd SALAD-EdgeNLP
+git clone https://github.com/hding1998/SALAD.git
+cd SALAD
 
 # Create virtual environment
 python -m venv venv
@@ -182,12 +179,11 @@ See `requirements.txt` for Python package dependencies.
 If you use this code or dataset in your research, please cite:
 
 ```bibtex
-@article{ding2026salad,
+@software{salad2026,
   title={SALAD: Tail-Anchored Prompt Architecture for Trustworthy Edge NLP in Power System Cyber-Physical Systems},
   author={Zhuang, Zheyin and Xue, Lujun and Wang, Zhenyu and Ding, Han and Jiang, Tong and Bai, Rui and Feng, Renjun},
-  journal={Energy and AI},
   year={2026},
-  publisher={Elsevier}
+  url={https://github.com/hding1998/SALAD}
 }
 ```
 
@@ -203,8 +199,4 @@ The datasets derived from open sources (UCI, ETT) retain their original licenses
 
 ## Contact
 
-For questions regarding the code or data, please open an issue or contact the corresponding author: **Han Ding** (<hding1998@foxmail.com>).
-
----
-
-*This work was conducted at State Grid Suzhou Power Supply Company, Suzhou, China.*
+For questions regarding the code or data, please open an issue.
